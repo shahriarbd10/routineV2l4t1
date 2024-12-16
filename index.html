@@ -20,47 +20,51 @@
                     <th>Time</th>
                     <th>Course Name</th>
                     <th>Course Code (Teacher Initial)</th>
-                    <th>Room No</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr data-exam='{"rooms": [{"room": "218(10)", "column": "C4(2), C6(8)"}, {"room": "219(24)", "column": "C2(8), C4(8), C6(8)"}, {"room": "221(18)", "column": "C2(8), C4(8), C6(2)"}]}'>
                     <td>17/12/24</td>
                     <td>12:00 PM - 02:00 PM</td>
                     <td>Compiler Design</td>
                     <td>CSE331 (MUR)</td>
-                    <td>Pending</td>
                 </tr>
-                <tr>
+                <tr data-exam='{"rooms": [{"room": "218(11)", "column": "C4(3), C6(8)"}, {"room": "219(24)", "column": "C2(8), C4(8), C6(8)"}, {"room": "221(16)", "column": "C2(8), C4(8)"}]}'>
                     <td>19/12/24</td>
                     <td>12:00 PM - 02:00 PM</td>
                     <td>Software Engineering</td>
                     <td>CSE333 (SNA)</td>
-                    <td>Pending</td>
                 </tr>
-                <tr>
+                <tr data-exam='{"rooms": [{"room": "218(11)", "column": "C4(3), C6(8)"}, {"room": "219(24)", "column": "C2(8), C4(2), C6(8)"}, {"room": "221(17)", "column": "C2(8), C4(8), C6(1)"}]}'>
                     <td>22/12/24</td>
                     <td>12:00 PM - 02:00 PM</td>
-                    <td>Computer Architecture and Organization</td>
+                    <td>Computer Architecture</td>
                     <td>CSE411 (THT)</td>
-                    <td>Pending</td>
                 </tr>
-                <tr>
+                <tr data-exam='{"rooms": [{"room": "320(1)", "column": "C4"}, {"room": "514(24)", "column": "C2(8), C4(2), C6(8)"}, {"room": "516(4)", "column": "C2(4)"}]}'>
                     <td>28/12/24</td>
                     <td>12:00 PM - 02:00 PM</td>
                     <td>Information Security</td>
                     <td>CSE423 (STA)</td>
-                    <td>Pending</td>
                 </tr>
-                <tr>
+                <tr data-exam='{"rooms": [{"room": "216(7)", "column": "C6(7)"}, {"room": "217(24)", "column": "C2(8), C4(8), C6(8)"}, {"room": "218(21)", "column": "C2(8), C4(8), C6(5)"}]}'>
                     <td>31/12/24</td>
                     <td>9:00 AM - 11:00 AM</td>
                     <td>Big Data and IoT</td>
                     <td>CSE412 (MUH)</td>
-                    <td>Pending</td>
                 </tr>
             </tbody>
         </table>
+
+
+        <!-- Floating Card -->
+        <div id="floatingCard" class="hidden">
+            <h3 id="examTitle"></h3>
+            <p><strong>Date:</strong> <span id="examDate"></span></p>
+            <div id="roomDetails"></div>
+            <button id="closeCard">Close</button>
+        </div>
+
         <footer>
             <p>Prepared by Shahriar</p>
         </footer>

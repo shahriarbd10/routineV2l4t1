@@ -5,46 +5,56 @@ body {
     background: linear-gradient(to bottom right, #2c3e50, #34495e);
     color: #ffffff;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Ensures vertical centering */
 }
 
 .container {
     padding: 20px;
     max-width: 1000px;
+    width: 90%;
     margin: auto;
+    animation: fadeInTable 1.5s ease-in-out forwards;
 }
 
+/* Header */
 header {
     text-align: center;
     margin-bottom: 30px;
-    animation: fadeInDown 1.5s ease;
+    animation: fadeInDown 1.5s ease forwards; /* Smooth fade-in from top */
 }
 
 header h1 {
-    font-size: 2rem; /* Smaller font size */
+    font-size: 2rem; /* Adjusted title size to avoid wrapping */
     color: #f1c40f;
     margin: 0;
+    animation: slideInTop 1.5s ease forwards; /* Slide-in animation from top */
 }
 
 header h2 {
-    font-size: 1.6rem;
-    margin: 5px 0;
+    font-size: 1.5rem; /* Slightly smaller subtitle */
+    margin: 10px 0;
     color: #ecf0f1;
+    animation: fadeInDown 1.5s ease forwards;
 }
 
 header h3 {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Adjusted Batch text */
     color: #bdc3c7;
+    animation: fadeInDown 1.5s ease forwards;
 }
-
+/* Table */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    animation: fadeIn 2s ease;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeInTable 1.5s ease-in-out forwards;
 }
 
 table th, table td {
@@ -67,61 +77,92 @@ table tr:hover {
     background-color: rgba(241, 196, 15, 0.2);
     transform: scale(1.02);
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 
+/* Footer */
 footer {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 50px;
     color: #bdc3c7;
     font-size: 14px;
-    animation: fadeInUp 2s ease;
+    animation: fadeInUp 1.5s ease forwards;
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 1080px) {
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    header h2 {
-        font-size: 1.4rem;
-    }
-
-    table th, table td {
-        padding: 10px;
-    }
-
-    table th, table td {
-        font-size: 0.9rem;
-    }
+/* Floating Card */
+#floatingCard {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    color: #f5f5f5;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    width: 45%;
+    max-width: 550px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
+#floatingCard h3 {
+    color: #f1c40f;
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+}
 
-    header h2 {
-        font-size: 1.2rem;
-    }
+#floatingCard p {
+    font-size: 1rem;
+    margin: 10px 0;
+    line-height: 1.5;
+}
 
-    header h3 {
-        font-size: 1rem;
-    }
+#floatingCard ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
 
-    table th, table td {
-        padding: 8px;
-        font-size: 0.8rem;
-    }
+#floatingCard li {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #ecf0f1;
+}
+
+#floatingCard button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #f1c40f;
+    color: #2c3e50;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#floatingCard button:hover {
+    background-color: #e1b700;
+    transform: scale(1.05);
+}
+
+/* Hidden State */
+.hidden {
+    display: none;
 }
 
 /* Animations */
-@keyframes fadeIn {
+@keyframes fadeInTable {
     from {
         opacity: 0;
+        transform: translateY(20px) scale(0.95);
     }
     to {
         opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }
 
@@ -129,6 +170,17 @@ footer {
     from {
         opacity: 0;
         transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInTop {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
     }
     to {
         opacity: 1;
@@ -144,5 +196,50 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem; /* Slightly smaller title for tablets */
+    }
+
+    table th, table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    #floatingCard {
+        width: 70%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem; /* Adjust title size for smaller screens */
+    }
+
+    header h2 {
+        font-size: 1.2rem;
+    }
+
+    table th, table td {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+
+    #floatingCard {
+        width: 90%;
+        padding: 12px;
+    }
+
+    #floatingCard h3 {
+        font-size: 1.2rem;
+    }
+
+    #floatingCard button {
+        font-size: 0.8rem;
     }
 }
